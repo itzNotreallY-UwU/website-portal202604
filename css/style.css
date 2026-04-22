@@ -1,0 +1,290 @@
+//* Theme: white background, black text, light purple buttons */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Light purple button style */
+.btn-purple-light {
+  background-color: #d9b8ff;
+  color: #2d1b4e;
+  border: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-purple-light:hover {
+  background-color: #c49efc;
+  color: #1f0e3a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-outline-purple {
+  border: 1px solid #d9b8ff;
+  color: #2d1b4e;
+  background: transparent;
+}
+
+.btn-outline-purple:hover {
+  background-color: #d9b8ff;
+  color: #1f0e3a;
+}
+
+/* Navbar transition for hide/show on scroll + HOVER PURPLE */
+.navbar {
+  transition: transform 0.3s ease-in-out, background-color 0.2s;
+  background-color: white !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.navbar.hide-nav {
+  transform: translateY(-100%);
+}
+
+/* Navbar links hover effect - purple */
+.navbar-nav .nav-link {
+  transition: color 0.2s ease, background-color 0.2s;
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #9b6bff !important;
+  background-color: #f3ecff;
+}
+
+.navbar-brand:hover {
+  opacity: 0.85;
+}
+
+/* Cards styling */
+.card {
+  border-radius: 1.2rem;
+  border: 1px solid #f0eefe;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s;
+  background: white;
+  color: black;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Carousel styling */
+.carousel-item img {
+  object-fit: cover;
+  height: 320px;
+  border-radius: 1rem;
+}
+
+/* ===== INFINITE SCROLL ANIMATION FOR SOCIAL MEDIA SECTION ===== */
+.social-infinite-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(90deg, #faf9ff, #ffffff, #faf9ff);
+  border-radius: 2rem;
+}
+
+.social-track {
+  display: flex;
+  gap: 30px;
+  animation: scrollInfinite 25s linear infinite;
+  width: fit-content;
+}
+
+.social-track:hover {
+  animation-play-state: paused;
+}
+
+.social-item {
+  flex: 0 0 auto;
+  width: 280px;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  cursor: pointer;
+  border: 1px solid #ede7f6;
+}
+
+.social-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 35px rgba(155, 107, 255, 0.15);
+  border-color: #d9b8ff;
+}
+
+.social-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.social-item i {
+  font-size: 3.5rem;
+  transition: transform 0.2s;
+}
+
+.social-item:hover i {
+  transform: scale(1.1);
+}
+
+.social-item h5 {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.social-item p {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Keyframes for infinite scrolling animation */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .social-item {
+    width: 220px;
+    padding: 1rem;
+  }
+  .social-item i {
+    font-size: 2.5rem;
+  }
+  .carousel-item img {
+    height: 220px;
+  }
+}
+
+/* Feedback section */
+.feedback-section {
+  background: #fefcff;
+  border-radius: 1.5rem;
+  border: 1px solid #ede7f6;
+}
+
+/* Tooltip custom styling */
+.tooltip-inner {
+  background-color: #5e3a9b;
+  color: white;
+}
+
+.bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before {
+  border-top-color: #5e3a9b;
+}
+
+/* Scroll to top button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  background-color: #d9b8ff;
+  color: #2d1b4e;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  background-color: #c49efc;
+  transform: scale(1.05);
+}
+
+/* Footer styling */
+footer {
+  background-color: #f8f5ff;
+  color: #1a1a2e;
+  border-top: 1px solid #e9e0ff;
+}
+
+footer a {
+  color: #3b2a6b;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #8b5cf6;
+  text-decoration: underline;
+}
+
+/* ===== ENHANCED VALIDATION STYLES ===== */
+.form-control {
+  border: 1px solid #ced4da;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control.is-valid {
+  border-color: #198754;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  padding-right: calc(1.5em + 0.75rem);
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linecap='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='0.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.error-feedback {
+  font-size: 0.85rem;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+
+.valid-feedback-custom {
+  font-size: 0.85rem;
+  color: #198754;
+  margin-top: 0.25rem;
+}
+
+.form-label {
+  color: #000000;
+  font-weight: 500;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
